@@ -61,7 +61,7 @@ public class logIn {
 
     @Test
 
-    public String incorrectLogin() throws InterruptedException {
+    public void incorrectLogin() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com");
@@ -77,14 +77,14 @@ public class logIn {
 
         WebElement element = driver.findElement(By.xpath(
                 "//h3[contains(text(),'Epic sadface: Username and password do not match any user in this service')]"));
-        element.isDisplayed();
-        return null;
+        System.out.println(element.isDisplayed());
+
+        WebElement errorMessageContainer = driver.findElement(By.xpath("//div[contains(@class,'error-message-container error')]"));
+        String background_color = "rgb(226, 35, 26)";
+        String errorMessageColor = errorMessageContainer.getCssValue("background_color");
+        Assert.assertEquals(errorMessageColor, background_color);
+
     }
-//        WebElement elements = By.xpath("//div[contains(@class,'error-message-container error'").findElement(driver);
-//        String background_color = "rgb(226, 35, 26)";
-//        String errorMessageColor = elements.getCssValue("background_color");
-//        Assert.assertEquals(errorMessageColor, background_color);
-//        return background_color;
 
 //    @Test
 //
@@ -168,6 +168,6 @@ public class logIn {
 //            }
 //            driver.quit();
 
+//    }
 
-//        return null;
-    }
+}

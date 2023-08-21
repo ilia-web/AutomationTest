@@ -14,8 +14,8 @@ public class ChromeRunner {
         driver.get("https://www.saucedemo.com");
     }
 
-    @AfterMethod
-    public void closeChrome(){
-        driver.close();
-    }
+//    @AfterMethod
+//    public void closeChrome(){
+//        driver.close();
+//    }
 }

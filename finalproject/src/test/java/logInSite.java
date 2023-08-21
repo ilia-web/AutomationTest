@@ -101,6 +101,11 @@ public class logInSite extends ChromeRunner {
                 "//h3[contains(text(),'Epic sadface: Username and password do not match any user in this service')]").findElement(driver);
         System.out.println(element.isDisplayed());
 
+        //check error message background color
+        WebElement errorMessageContainer = driver.findElement(By.xpath("//div[contains(@class, 'error-message-container error')]"));
+        String background_color = "rgba(226, 35, 26, 1)";
+        String errorMessageColor = errorMessageContainer.getCssValue("background-color");
+        Assert.assertEquals(errorMessageColor,background_color);
         driver.quit();
 
     }
